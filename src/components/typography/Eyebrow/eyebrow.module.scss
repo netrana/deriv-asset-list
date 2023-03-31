@@ -1,0 +1,13 @@
+@import 'styles/globals.scss';
+
+.eyebrow {
+  font-weight: $fontWeightMedium;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  margin: 0 !important;
+
+  &.isMuted {
+    opacity: 0.8;
+  }
+}

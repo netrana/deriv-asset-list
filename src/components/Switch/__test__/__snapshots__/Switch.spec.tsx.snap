@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch component test snapshot test should match snapshot with title 1`] = `
+<div
+  className="switch "
+>
+  <Switch />
+  <Text
+    className="title"
+    strong={true}
+  >
+    Test Title
+  </Text>
+</div>
+`;
+
+exports[`Switch component test snapshot test should match snapshot without title 1`] = `
+<div
+  className="switch "
+>
+  <Switch />
+</div>
+`;

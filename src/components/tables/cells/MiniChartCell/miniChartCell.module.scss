@@ -1,0 +1,13 @@
+@import 'styles/globals';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.bold {
+  font-weight: 500;
+}
+.chartContainer {
+  width: 200px;
+  height: 50px;
+}

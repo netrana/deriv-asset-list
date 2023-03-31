@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectInput component test snapshot should match snapshot 1`] = `
+<div
+  className="select "
+>
+  <Select
+    allowClear={true}
+    className=""
+  >
+    <SelectOption
+      value="test"
+    >
+      test
+    </SelectOption>
+  </Select>
+</div>
+`;

@@ -1,0 +1,60 @@
+@import 'styles/globals.scss';
+
+.container {
+  :global(.ant-card) {
+    border-radius: $borderRadius;
+    background: transparent;
+  }
+
+  :global(.ant-card-actions) {
+    border-radius: 0 0 $borderRadius $borderRadius;
+  }
+
+  :global(.ant-card-head-title) {
+    font-size: 18px;
+  }
+
+  :global(.ant-card-cover) {
+    img {
+      border-radius: $borderRadius $borderRadius 0 0;
+      width: 100%;
+      object-fit: cover;
+      height: max(10rem, 30vh);
+      aspect-ratio: 4/3;
+      mix-blend-mode: var(--card-blend-mode);
+      ~ * {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .borderBottom {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .hasPadding {
+    padding: 10px;
+  }
+
+  .hasBorder {
+    border: 1px solid #d9d9d9 !important;
+    height: 100%;
+
+    @media only screen and (max-width: 470px) {
+      :global(.ant-card-head-wrapper) {
+        flex-direction: column;
+      }
+      :global(.ant-card-extra) {
+        margin: 0;
+      }
+
+      :global(.ant-radio-group) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

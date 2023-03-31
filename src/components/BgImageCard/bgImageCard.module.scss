@@ -1,0 +1,54 @@
+@import 'styles/globals.scss';
+
+.root {
+  min-height: 50vh;
+  border-radius: 10px;
+  background-image: url('../../assets/images/find-car.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: left;
+  padding: 40px 40px 0px 40px;
+  margin-bottom: 10px;
+
+  .title {
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 400;
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .browseButton {
+    color: rgba(0, 0, 0, 0.85);
+    background: #ffffff;
+    border-radius: 200px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .title {
+      font-size: 24px;
+      line-height: 36px;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .root {
+    padding: 40px 95px 0px 40px;
+  }
+}
+
+@media only screen and (max-width: 975px) {
+  .root {
+    height: 30vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .root {
+    height: 20vh;
+    min-height: 260px;
+  }
+}

@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VehicleCard component test snapshot test should match snapshot for destination card 1`] = `
+<div
+  className="container vehicleCard"
+>
+  <Card
+    actions={
+      Array [
+        <React.Fragment>
+          <Row
+            className="footerBody"
+          >
+            <Col
+              className="footerLeft"
+              span={16}
+            >
+              <span>
+                 $
+                0
+                /day
+              </span>
+            </Col>
+            <Col
+              className="footerRight"
+              span={8}
+            >
+              <span
+                className="statusButton"
+              >
+                New
+              </span>
+            </Col>
+          </Row>
+        </React.Fragment>,
+      ]
+    }
+    bordered={false}
+    className="hasBorder"
+    cover={null}
+    hoverable={true}
+    loading={false}
+  />
+</div>
+`;
+
+exports[`VehicleCard component test snapshot test should match snapshot for small card 1`] = `
+<div
+  className="container vehicleCard"
+>
+  <Card
+    actions={
+      Array [
+        <React.Fragment>
+          <Row
+            className="footerBody"
+          >
+            <Col
+              className="footerLeft"
+              span={16}
+            >
+              <span>
+                 $
+                0
+                /day
+              </span>
+            </Col>
+            <Col
+              className="footerRight"
+              span={8}
+            >
+              <span
+                className="statusButton"
+              >
+                New
+              </span>
+            </Col>
+          </Row>
+        </React.Fragment>,
+      ]
+    }
+    bordered={false}
+    className="hasBorder"
+    cover={null}
+    hoverable={true}
+    loading={false}
+  />
+</div>
+`;
+
+exports[`VehicleCard component test snapshot test should match snapshot with default props 1`] = `
+<div
+  className="container vehicleCard"
+>
+  <Card
+    actions={
+      Array [
+        <React.Fragment>
+          <Row
+            className="footerBody"
+          >
+            <Col
+              className="footerLeft"
+              span={16}
+            >
+              <span>
+                 $
+                0
+                /day
+              </span>
+            </Col>
+            <Col
+              className="footerRight"
+              span={8}
+            >
+              <span
+                className="statusButton"
+              >
+                New
+              </span>
+            </Col>
+          </Row>
+        </React.Fragment>,
+      ]
+    }
+    bordered={false}
+    className="hasBorder"
+    cover={null}
+    hoverable={true}
+    loading={false}
+  />
+</div>
+`;

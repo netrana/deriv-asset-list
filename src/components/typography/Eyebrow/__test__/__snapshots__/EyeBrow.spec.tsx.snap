@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Eyebrow component test snapshot test should match snapshot with default props 1`] = `
+<Text
+  className="eyebrow"
+>
+  Test Text
+</Text>
+`;
+
+exports[`Eyebrow component test snapshot test should match snapshot with isMuted true 1`] = `
+<Text
+  className="eyebrow isMuted"
+>
+  Test Text
+</Text>
+`;

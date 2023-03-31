@@ -1,0 +1,9 @@
+@import 'styles/globals';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  & Button {
+    margin-right: .5rem;
+  }
+}

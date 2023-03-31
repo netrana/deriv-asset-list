@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextLink component test snapshot test should match snapshot 1`] = `
+<div
+  className="textLink"
+  onClick={[Function]}
+>
+  <Text
+    className="text"
+  />
+</div>
+`;

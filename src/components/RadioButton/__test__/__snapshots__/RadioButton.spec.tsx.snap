@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton component test snapshot should match snapshot with title 1`] = `
+<div
+  className="radio "
+>
+  <div
+    className="title"
+  >
+    <Text
+      strong={true}
+    >
+      Test Title
+    </Text>
+  </div>
+  <RadioGroup
+    className="radio"
+    options={
+      Array [
+        Object {
+          "label": "Option 1",
+          "value": "1",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`RadioButton component test snapshot should match snapshot without title 1`] = `
+<div
+  className="radio "
+>
+  <RadioGroup
+    className="radio"
+    options={
+      Array [
+        Object {
+          "label": "Option 1",
+          "value": "1",
+        },
+      ]
+    }
+  />
+</div>
+`;

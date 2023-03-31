@@ -1,0 +1,50 @@
+@import 'styles/globals';
+
+.table {
+  // border: 1px solid $lightgray;
+  border-radius: $borderRadius;
+
+  & th {
+    // word-break: break-word;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px 50px 20px 50px;
+}
+
+.tableTopContainer {
+  padding-bottom: 1.5rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+.buttonIcon {
+  color: white;
+  background: $primaryThemeColor !important;
+}
+.buttonText {
+  color: white;
+}
+
+:global(.ant-pagination-item-active) {
+  background-color: #1890ff;
+  & a {
+    color: white;
+  }
+  &:focus {
+    & a {
+      color: white;
+    }
+  }
+}
+
+:global(.ant-table-row) {
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BgImageCard component test snapshot should match snapshot 1`] = `
+<div
+  className="root carBrowse "
+>
+  <div
+    className="title"
+  />
+  <Button
+    className="browseButton"
+    onClick={[Function]}
+  >
+    Browse Cars
+  </Button>
+</div>
+`;

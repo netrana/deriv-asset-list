@@ -1,0 +1,16 @@
+@import 'styles/globals';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 65px;
+}
+.bold {
+  font-weight: 500;
+}
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}

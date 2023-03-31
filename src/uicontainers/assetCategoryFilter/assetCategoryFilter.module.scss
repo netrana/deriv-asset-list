@@ -1,0 +1,20 @@
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+:global(.ant-tabs-nav) {
+    width: 100% !important;
+}
+
+:global(.ant-tabs-tab) {
+    display: block; // centers text inside tabs
+    flex: 1;
+    text-align: center;
+}
+
+:global(.ant-tabs-nav>div:nth-of-type(1)) {
+    display: unset !important;
+    width: 100% !important;
+}

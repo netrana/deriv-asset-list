@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IXTable from 'components/tables/IXTable';
+import XTable from 'components/tables/XTable';
 import { useAppSelector } from 'store/hooks';
 
 import styles from './assetListTable.module.scss';
@@ -12,7 +12,7 @@ const AssetListTable = () => {
 
   return (
     <div className={styles.bodyContainer}>
-      <IXTable
+      <XTable
         data={assetTableData}
         columns={COLUMNS}
       />

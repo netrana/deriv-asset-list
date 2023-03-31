@@ -1,4 +1,4 @@
-import { Column } from 'components/tables/IXTable/types';
+import { Column } from 'components/tables/XTable/types';
 
 export const COLUMNS: Column[] = [
   {

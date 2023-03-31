@@ -1,8 +1,0 @@
-@import 'styles/globals.scss';
-
-.checkbox {
-  :global(.ant-checkbox-checked .ant-checkbox-inner) {
-    background-color: $primaryThemeColor;
-    border-color: $primaryThemeColor;
-  }
-}

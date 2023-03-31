@@ -7,7 +7,7 @@ import Home from 'uicontainers/home';
 
 const PublicLayout = () => {
   return (
-    <Content footer={<></>}>
+    <Content>
       <Outlet />
     </Content>
   );

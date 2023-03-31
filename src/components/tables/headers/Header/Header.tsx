@@ -1,5 +1,5 @@
 import React from 'react';
-import { ColumnFilter } from '../../IXTable/types';
+import { ColumnFilter } from '../../XTable/types';
 
 interface Props {
   filter?: ColumnFilter;

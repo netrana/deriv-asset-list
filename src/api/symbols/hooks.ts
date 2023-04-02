@@ -7,6 +7,7 @@ import { setActiveSymbols, setGetActiveSymbolsRequestStatus } from "store/symbol
 import { notification } from "shared/helpers/notifications";
 import { ActiveSymbol } from "./types";
 
+// @ts-ignore
 const handleActiveSymbolsResponse = (dispatch) => async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {

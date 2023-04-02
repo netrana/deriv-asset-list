@@ -32,10 +32,12 @@ export const MiniChartCell: FC<Props> = (props) => {
       fill: '#d6e3fd',
     },
     point: {
+      // @ts-ignore
       size: (value) => {
         return value.x === maxIndex.toString() || value.x === minIndex.toString() ? 2 : 0
       },
       share: 'circle',
+      // @ts-ignore
       style: (value) => {
         let color = '';
         if(value.x === maxIndex.toString()) {

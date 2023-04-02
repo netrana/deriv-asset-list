@@ -1,3 +1,4 @@
+// @ts-ignore
 import DerivAPIBasic from "@deriv/deriv-api/dist/DerivAPIBasic";
 
 import { APP_ID } from "./constants";

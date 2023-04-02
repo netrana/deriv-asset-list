@@ -9,6 +9,7 @@ export const useTicksStream = (symbol: string) => {
   const tick_subscription = useRef();
   const tickSubscriber = derivApi.subscribe({ ticks: symbol, subscribe: 1 });
 
+  // @ts-ignore
   const handleTicksResponse = (data) => {
     if (data) {
       if (data.msg_type === "tick") {
@@ -25,7 +26,7 @@ export const useTicksStream = (symbol: string) => {
       if (tick_subscription.current) {
         // @ts-ignore
         tick_subscription.current.unsubscribe();
-        tick_subscription.current = null;
+        tick_subscription.current = undefined;
       }
     }
   }, []);

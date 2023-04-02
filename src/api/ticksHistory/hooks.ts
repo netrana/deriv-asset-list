@@ -7,6 +7,7 @@ import { setGetTicksHistoryRequestStatus, setTicksHistory } from "store/ticksHis
 
 import { TicksHistoryRequest } from "./types";
 
+// @ts-ignore
 const handleTicksHistoryResponse = (dispatch) => async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {

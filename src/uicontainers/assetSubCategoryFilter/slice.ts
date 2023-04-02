@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AssetSubCategoryFilterState } from './types';
 
 const initialState: AssetSubCategoryFilterState = {
-  selectedAssetSubCategory: undefined
+  selectedAssetSubCategory: ''
 };
 
 export const assetSubCategoryFilterSlice = createSlice({

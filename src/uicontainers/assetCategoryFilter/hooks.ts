@@ -9,7 +9,7 @@ export const useOnCategoryChange = () => {
   return React.useCallback(
     (key: string) => {
       dispatch(setSelectedAssetCategory(key));
-      dispatch(setSelectedAssetSubCategory(undefined));
+      dispatch(setSelectedAssetSubCategory(''));
     },
     [setSelectedAssetCategory],
   );

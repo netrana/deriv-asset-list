@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 
-import { derivApi, wsConnection } from "api/derivWS";
-import { ticksStreamApi } from 'api/ticks'
+import { derivApi } from "api/derivWS";
 import { useAppDispatch } from 'store/hooks';
 import { setGetTicksRequestStatus, setTicks } from 'store/ticks/actions';
 
-const handleTicksResponse = (dispatch) => async (res) => {
-  const data = JSON.parse(res.data);
-  if (data.error !== undefined) {
-    console.log(data.error.message);
-    wsConnection.removeEventListener("message", handleTicksResponse, false);
-    await derivApi.disconnect();
-    dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks, requestStatus: 'failed' }));
-  }
-
-  if (data.msg_type === "tick") {
-    dispatch(setTicks({ symbol: data.echo_req.ticks, tick: data.tick }));
-    dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks, requestStatus: 'done' }));
-  }
-};
-
-export const useSubscribeTicks = () => {
+export const useTicksStream = (symbol: string) => {
   const dispatch = useAppDispatch();
-  return React.useCallback(
-    (symbol: string) => {
-      dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
-      const tickApi = ticksStreamApi(symbol);
-      wsConnection.addEventListener("message", handleTicksResponse(dispatch));
-      tickApi.subscribeTicks();
-      return tickApi;
-    },
-    [],
-  );
+  const tick_subscription = useRef();
+  const tickSubscriber = derivApi.subscribe({ ticks: symbol, subscribe: 1 });
+
+  const handleTicksResponse = (data) => {
+    if (data) {
+      if (data.msg_type === "tick") {
+        dispatch(setTicks({ symbol: data.echo_req.ticks, tick: data.tick }));
+        dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks, requestStatus: 'done' }));
+      }
+    }
+  };
+  React.useEffect(() => {
+    dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
+    tick_subscription.current = tickSubscriber.subscribe(handleTicksResponse);
+
+    return () => {
+      if (tick_subscription.current) {
+        // @ts-ignore
+        tick_subscription.current.unsubscribe();
+        tick_subscription.current = null;
+      }
+    }
+  }, []);
 };

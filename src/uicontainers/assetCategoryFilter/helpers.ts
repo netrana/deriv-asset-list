@@ -1,8 +1,8 @@
-import { Symbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types'
 import { AssetCategory } from './types'
 
 export const findAssetCategories = (
-  symbols: Symbol[]
+  symbols: ActiveSymbol[]
 ): AssetCategory[] => {
   return symbols.map((symbol) => ({
     id: symbol.market,

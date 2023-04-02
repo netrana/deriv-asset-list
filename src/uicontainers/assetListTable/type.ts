@@ -14,6 +14,6 @@ export interface AssetTableData {
   key: string;
   name: TextProps;
   last_price: LastPriceCellProps;
-  // daily_change: DailyChangeCellProps;
-  // mini_chart: MiniChartCellProps;
+  daily_change: DailyChangeCellProps;
+  mini_chart: MiniChartCellProps;
 }

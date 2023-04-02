@@ -1,8 +1,8 @@
-import { Symbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types'
 import { AssetSubCategory } from './types'
 
 export const findAssetSubCategories = (
-  symbols: Symbol[],
+  symbols: ActiveSymbol[],
   category: string,
 ): AssetSubCategory[] => {
   return symbols

@@ -1,5 +1,5 @@
 import { RequestStatus } from "api/derivWS/types";
-import { Symbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types'
 
 export interface AssetCategory {
   id: string;
@@ -12,6 +12,6 @@ export interface AssetSubCategory {
 }
 
 export interface SymbolsState {
-  activeSymbols: Symbol[];
+  activeSymbols: ActiveSymbol[];
   getActiveSymbolsRequestStatus: RequestStatus;
 }

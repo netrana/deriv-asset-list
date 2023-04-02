@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RequestStatus } from 'api/derivWS/types';
-import { Symbol } from 'api/symbols/types';
+import { ActiveSymbol } from 'api/symbols/types';
 
 import { SymbolsState } from './types';
 
@@ -16,7 +16,7 @@ export const symbolsSlice = createSlice({
     setGetActiveSymbolsRequestStatus(state, action: PayloadAction<RequestStatus>) {
       state.getActiveSymbolsRequestStatus = action.payload;
     },
-    setActiveSymbols(state, action: PayloadAction<Symbol[]>) {
+    setActiveSymbols(state, action: PayloadAction<ActiveSymbol[]>) {
       state.activeSymbols = action.payload;
     },
   },

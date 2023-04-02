@@ -1,4 +1,4 @@
-import { TinyArea,  } from '@ant-design/plots';
+import { TinyArea, } from '@ant-design/plots';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 
@@ -17,7 +17,11 @@ export const MiniChartCell: FC<Props> = (props) => {
   const isLoading = ticksHistory?.ticksHistoryRequestStatus === 'started';
   const historyData = ticksHistory?.ticksHistory || [];
 
-  const data = historyData.flatMap((item) => item.close)
+  const data = historyData.flatMap((item) => item.close);
+  const max = Math.max(...data);
+  const maxIndex = data.indexOf(max);
+  const min = Math.min(...data);
+  const minIndex = data.indexOf(min);
 
   const config = {
     height: 50,
@@ -28,12 +32,20 @@ export const MiniChartCell: FC<Props> = (props) => {
       fill: '#d6e3fd',
     },
     point: {
-      size: 4,
+      size: (value) => {
+        return value.x === maxIndex.toString() || value.x === minIndex.toString() ? 2 : 0
+      },
       share: 'circle',
       style: (value) => {
-        console.log('point value =', value);
+        let color = '';
+        if(value.x === maxIndex.toString()) {
+          color = 'green';
+        }
+        if(value.x === minIndex.toString()) {
+          color = 'red';
+        }
         return {
-          fill: value.y > 1221 ?'red' : 'green',
+          fill: color
         }
       }
     },

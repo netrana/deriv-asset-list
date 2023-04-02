@@ -1,19 +1,19 @@
-import { Symbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types'
 
 import { AssetTableData } from './type';
 import { symbolMappings } from 'uicontainers/_shared/symbolMappings';
 
 export const findFilteredSymbols = (
-  symbols: Symbol[],
+  symbols: ActiveSymbol[],
   category: string,
   subCategory: string,
-): Symbol[] => {
+): ActiveSymbol[] => {
   return symbols
     .filter((symbol) => symbol.market === category && symbol.submarket === subCategory);
 };
 
 export const transformAssetsToTableData = (
-  symbols: Symbol[]
+  symbols: ActiveSymbol[]
 ): AssetTableData[] => {
   return symbols.map((symbol) => ({
     key: symbol.symbol,
@@ -24,11 +24,11 @@ export const transformAssetsToTableData = (
     last_price: {
       symbol: symbol.symbol,
     },
-    // daily_change: {
-    //   symbol: symbol.symbol,
-    // },
-    // mini_chart: {
-    //   symbol: symbol.symbol,
-    // }
+    daily_change: {
+      symbol: symbol.symbol,
+    },
+    mini_chart: {
+      symbol: symbol.symbol,
+    }
   }));
 };

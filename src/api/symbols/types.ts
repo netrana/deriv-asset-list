@@ -1,4 +1,4 @@
-export interface Symbol {
+export interface ActiveSymbol {
   display_name: string;
   market: string;
   market_display_name: string;

@@ -6,6 +6,7 @@ import { useAppDispatch } from 'store/hooks';
 import { setActiveSymbols, setGetActiveSymbolsRequestStatus } from "store/symbols/actions";
 import { notification } from "shared/helpers/notifications";
 import { ActiveSymbol } from "./types";
+import { ChannelType } from "api/derivWS/types";
 
 // @ts-ignore
 const handleActiveSymbolsResponse = (dispatch) => async (res) => {
@@ -16,7 +17,7 @@ const handleActiveSymbolsResponse = (dispatch) => async (res) => {
       description: data.error.message,
       type: 'error',
     })
-    wsConnection.removeEventListener("message", handleActiveSymbolsResponse, false);
+    wsConnection.removeEventListener(ChannelType.MESSAGE, handleActiveSymbolsResponse, false);
     await derivApi.disconnect();
     dispatch(setGetActiveSymbolsRequestStatus('failed'));
   }
@@ -150,7 +151,7 @@ const handleActiveSymbolsResponse = (dispatch) => async (res) => {
     dispatch(setGetActiveSymbolsRequestStatus('done'));
   }
 
-  wsConnection.removeEventListener("message", handleActiveSymbolsResponse, false);
+  wsConnection.removeEventListener(ChannelType.MESSAGE, handleActiveSymbolsResponse, false);
 };
 
 export const useGetActiveSymbols = () => {
@@ -158,7 +159,7 @@ export const useGetActiveSymbols = () => {
   return React.useCallback(
     () => {
       dispatch(setGetActiveSymbolsRequestStatus('started'));
-      wsConnection.addEventListener("message", handleActiveSymbolsResponse(dispatch));
+      wsConnection.addEventListener(ChannelType.MESSAGE, handleActiveSymbolsResponse(dispatch));
       getActiveSymbols()
     },
     [],

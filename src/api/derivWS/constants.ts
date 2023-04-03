@@ -1,1 +1,0 @@
-export const APP_ID = 1089; // Replace with your app_id or leave as 1089 for testing.

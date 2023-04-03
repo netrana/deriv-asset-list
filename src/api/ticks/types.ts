@@ -1,17 +1,24 @@
-export interface Symbol {
-  display_name: string;
-  market: string;
-  market_display_name: string;
-  submarket: string;
-  submarket_display_name: string;
+import { MessageType } from "api/derivWS/types";
+
+export interface Tick {
+  ask: number;
+  bid: number;
+  epoch: number;
+  id: string;
+  pip_size: number;
+  quote: number;
   symbol: string;
-  symbol_type: string;
 }
 
-export interface GetActiveSymbolsResponse {
-  active_symbols: Symbol[];
+export interface Subscription {
+  id: string;
 }
 
-export interface GetActiveSymbols {
-  (): Promise<GetActiveSymbolsResponse>;
+export interface TicksStreamResponse {
+  tick: Tick;
+  echo_req: {
+    [key: string]: string | number;
+  };
+  msg_type: MessageType,
+  subscription: Subscription;
 }

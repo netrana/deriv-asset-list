@@ -1,4 +1,5 @@
 import { RequestStatus } from "api/derivWS/types";
+import { Tick } from "api/ticks/types";
 
 export interface AssetCategory {
   id: string;
@@ -8,17 +9,6 @@ export interface AssetCategory {
 export interface AssetSubCategory {
   id: string;
   name: string;
-}
-
-export interface Tick {
-  ask?: number;
-  bid?: number;
-  epoch?: number;
-  id?: string;
-  pip_size?: number;
-  quote?: number;
-  symbol: string;
-  errorMessage?: string;
 }
 
 export interface TicksState {

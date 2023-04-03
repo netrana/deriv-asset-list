@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RequestStatus } from 'api/derivWS/types';
 
-import { Tick, TicksState } from './types';
+import { TicksState } from './types';
+import { Tick } from 'api/ticks/types';
 
 const initialState: TicksState = {
   symbolWiseTicks: {},

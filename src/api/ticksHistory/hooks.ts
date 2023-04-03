@@ -6,23 +6,24 @@ import { useAppDispatch } from 'store/hooks';
 import { setGetTicksHistoryRequestStatus, setTicksHistory } from "store/ticksHistory/actions";
 
 import { TicksHistoryRequest } from "./types";
+import { ChannelType, MessageType } from "api/derivWS/types";
 
 // @ts-ignore
 const handleTicksHistoryResponse = (dispatch) => async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {
     console.log("Error : ", data.error.message);
-    wsConnection.removeEventListener("message", handleTicksHistoryResponse, false);
+    wsConnection.removeEventListener(ChannelType.MESSAGE, handleTicksHistoryResponse, false);
     await derivApi.disconnect();
     dispatch(setGetTicksHistoryRequestStatus({ ticks: data.echo_req.ticks_history, requestStatus: 'failed' }));
   }
 
-  if (data.msg_type === "candles") {
+  if (data.msg_type === MessageType.CANDLES) {
     dispatch(setTicksHistory({ ticks: data.echo_req.ticks_history, ticksHistory: data.candles }));
     dispatch(setGetTicksHistoryRequestStatus({ ticks: data.echo_req.ticks_history, requestStatus: 'done' }));
   }
 
-  wsConnection.removeEventListener("message", handleTicksHistoryResponse, false);
+  wsConnection.removeEventListener(ChannelType.MESSAGE, handleTicksHistoryResponse, false);
 };
 
 export const useGetTicksHistory = () => {
@@ -30,7 +31,7 @@ export const useGetTicksHistory = () => {
   return React.useCallback(
     (request: TicksHistoryRequest) => {
       dispatch(setGetTicksHistoryRequestStatus({ ticks: request.ticks_history, requestStatus: 'started' }));
-      wsConnection.addEventListener("message", handleTicksHistoryResponse(dispatch));
+      wsConnection.addEventListener(ChannelType.MESSAGE, handleTicksHistoryResponse(dispatch));
       getTicksHistory(request)
     },
     [],

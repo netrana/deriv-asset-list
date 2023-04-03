@@ -34,10 +34,8 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/env-cmd -f .env react-scripts start",
-    "build:local": "./node_modules/.bin/env-cmd -f .env react-scripts build",
+    "build": "./node_modules/.bin/env-cmd -f .env react-scripts build",
     "build:dev": "./node_modules/.bin/env-cmd -f .env.dev react-scripts build",
-    "build:stag": "./node_modules/.bin/env-cmd -f .env.stag react-scripts build",
-    "build:prod": "./node_modules/.bin/env-cmd -f .env.prod react-scripts build",
     "eject": "react-scripts eject",
     "check:types": "./node_modules/.bin/tsc -p ./tsconfig.json",
     "lint": "eslint --max-warnings=0 --cache --cache-location ./.eslintcache ./src --ext .js,.ts,.tsx -c ./.eslintrc.js",

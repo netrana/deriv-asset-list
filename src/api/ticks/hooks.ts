@@ -3,21 +3,23 @@ import React, { useRef } from "react";
 import { derivApi } from "api/derivWS";
 import { useAppDispatch } from 'store/hooks';
 import { setGetTicksRequestStatus, setTicks } from 'store/ticks/actions';
+import { TicksStreamResponse } from "./types";
+import { MessageType } from "api/derivWS/types";
 
 export const useTicksStream = (symbol: string) => {
   const dispatch = useAppDispatch();
   const tick_subscription = useRef();
   const tickSubscriber = derivApi.subscribe({ ticks: symbol, subscribe: 1 });
 
-  // @ts-ignore
-  const handleTicksResponse = (data) => {
+  const handleTicksResponse = (data: TicksStreamResponse) => {
     if (data) {
-      if (data.msg_type === "tick") {
-        dispatch(setTicks({ symbol: data.echo_req.ticks, tick: data.tick }));
-        dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks, requestStatus: 'done' }));
+      if (data.msg_type === MessageType.TICK) {
+        dispatch(setTicks({ symbol: data.echo_req.ticks.toString(), tick: data.tick }));
+        dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks.toString(), requestStatus: 'done' }));
       }
     }
   };
+  
   React.useEffect(() => {
     dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
     tick_subscription.current = tickSubscriber.subscribe(handleTicksResponse);

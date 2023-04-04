@@ -14,12 +14,18 @@ export const useTicksStream = (symbol: string) => {
   const handleTicksResponse = (data: TicksStreamResponse) => {
     if (data) {
       if (data.msg_type === MessageType.TICK) {
-        dispatch(setTicks({ symbol: data.echo_req.ticks.toString(), tick: data.tick }));
-        dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks.toString(), requestStatus: 'done' }));
+        if (data.error) {
+          dispatch(setTicks({ symbol: data.echo_req.ticks.toString(), tick: { quote: 0 } }));
+          dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks.toString(), requestStatus: 'failed' }));
+        } else {
+          dispatch(setTicks({ symbol: data.echo_req.ticks.toString(), tick: data.tick }));
+          dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks.toString(), requestStatus: 'done' }));
+        }
+
       }
     }
   };
-  
+
   React.useEffect(() => {
     dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
     tick_subscription.current = tickSubscriber.subscribe(handleTicksResponse);

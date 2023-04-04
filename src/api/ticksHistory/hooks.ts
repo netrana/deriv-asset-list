@@ -14,7 +14,6 @@ const handleTicksHistoryResponse = (dispatch: AppDispatch) => async (res) => {
   if (data.error !== undefined) {
     console.log("Error : ", data.error.message);
     wsConnection.removeEventListener(ChannelType.MESSAGE, handleTicksHistoryResponse, false);
-    await derivApi.disconnect();
     dispatch(setGetTicksHistoryRequestStatus({ ticks: data.echo_req.ticks_history, requestStatus: 'failed' }));
   }
 

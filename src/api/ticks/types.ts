@@ -1,13 +1,13 @@
-import { MessageType } from "api/derivWS/types";
+import { DerivResponseError, MessageType } from "api/derivWS/types";
 
 export interface Tick {
-  ask: number;
-  bid: number;
-  epoch: number;
-  id: string;
-  pip_size: number;
-  quote: number;
-  symbol: string;
+  ask?: number;
+  bid?: number;
+  epoch?: number;
+  id?: string;
+  pip_size?: number;
+  quote?: number;
+  symbol?: string;
 }
 
 export interface Subscription {
@@ -21,4 +21,5 @@ export interface TicksStreamResponse {
   };
   msg_type: MessageType,
   subscription: Subscription;
+  error: DerivResponseError;
 }

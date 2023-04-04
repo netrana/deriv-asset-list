@@ -2,8 +2,6 @@ import { TinyArea } from '@ant-design/plots';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 
-import { useGetTicksHistory } from 'api/ticksHistory/hooks';
-import { TickHistoryStyle, TicksHistoryRequest } from 'api/ticksHistory/types';
 import { Spin } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { selectTicksHistory } from 'store/ticksHistory/selectors';
@@ -49,20 +47,6 @@ export const MiniChartCell: FC<Props> = (props) => {
       }
     },
   };
-
-  const getTicksHistory = useGetTicksHistory();
-  const ticks_history_request: TicksHistoryRequest = {
-    ticks_history: symbol,
-    adjust_start_time: 1,
-    granularity: 7200,
-    end: "latest",
-    start: 1,
-    style: TickHistoryStyle.CANDLES,
-  };
-
-  React.useEffect(() => {
-    getTicksHistory(ticks_history_request);
-  }, [symbol]);
 
   return (
     <Spin spinning={isLoading}>

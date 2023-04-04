@@ -34,6 +34,14 @@ export const XTable = <T extends {}, K>(props: Props<T, K>): ReactElement<Props<
       rowClassName={rowClassName}
       locale={{ emptyText: empty }}
       loading={loading}
+      onRow={() => {
+        return {
+          onClick: (event) => {event.stopPropagation();},
+          onDoubleClick: (event) => {event.stopPropagation();},
+          onMouseEnter: (event) => {event.stopPropagation();},
+          onMouseLeave: (event) => {event.stopPropagation();},
+        };
+      }}
     />
   );
 };

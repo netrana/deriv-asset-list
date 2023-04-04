@@ -1,15 +1,13 @@
 import classnames from 'classnames';
 import React, { FC } from 'react';
 
-import { useGetTicksHistory } from 'api/ticksHistory/hooks';
-import { TickHistoryStyle, TicksHistoryRequest } from 'api/ticksHistory/types';
+import { Spin } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { selectTicks } from 'store/ticks/selectors';
 import { selectTicksHistory } from 'store/ticksHistory/selectors';
 
 import styles from './dailyChangeCell.module.scss';
 import { Props } from './types';
-import { Spin } from 'components/helpers';
 
 export const DailyChangeCell: FC<Props> = (props) => {
   const { symbol } = props;
@@ -26,20 +24,6 @@ export const DailyChangeCell: FC<Props> = (props) => {
   const isTicksLoading = getTicksRequestStatus === 'started';
 
   const isLoading = isHistoryLoading && isTicksLoading;
-
-  const getTicksHistory = useGetTicksHistory();
-  const ticks_history_request: TicksHistoryRequest = {
-    ticks_history: symbol,
-    adjust_start_time: 1,
-    granularity: 3600,
-    end: "latest",
-    start: 1,
-    style: TickHistoryStyle.CANDLES,
-  };
-
-  React.useEffect(() => {
-    getTicksHistory(ticks_history_request);
-  }, [symbol]);
 
   return (
     <Spin spinning={isLoading}>

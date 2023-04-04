@@ -1,20 +1,13 @@
 import React from 'react';
-import { ColumnFilter } from '../../XTable/types';
-
-interface Props {
-  filter?: ColumnFilter;
-  tooltip?: string;
-  name: string;
-}
+import { Props } from './types';
+import { Title } from 'components/helpers';
 
 const Header = (props: Props) => {
-  const { filter, tooltip, name } = props;
-  const isCustom = filter?.type === 'CUSTOM';
+  const { name } = props;
   return (
-    <>
-      {filter && isCustom && filter.customRender && filter.customRender()}     
-      {!tooltip && !filter && name}
-    </>
+    <Title level={5}> 
+      {name}
+    </Title>
   );
 };
 

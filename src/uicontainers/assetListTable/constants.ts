@@ -12,17 +12,20 @@ export const COLUMNS: Column[] = [
     key: 'last_price',
     type: 'last-price-cell',
     width: '25%',
+    align: 'center'
   },
   {
     name: '24h change',
     key: 'daily_change',
     type: 'daily-change-cell',
     width: '25%',
+    align: 'center'
   },
   {
     name: '',
     key: 'mini_chart',
     type: 'mini-chart-cell',
     width: '25%',
+    align: 'center'
   },
 ];

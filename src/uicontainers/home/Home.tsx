@@ -1,16 +1,14 @@
 import React from 'react';
 
-import { Spin } from 'components/misc/helpers';
+import { useGetActiveSymbols } from 'api/symbols/hooks';
+import { Space, Spin } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { selectGetSymbolRequestStatus } from 'store/symbols/selectors';
 import AssetCategoryFilter from 'uicontainers/assetCategoryFilter';
+import AssetListTable from 'uicontainers/assetListTable';
 import AssetSubCategoryFilter from 'uicontainers/assetSubCategoryFilter';
 
 import styles from './Home.module.scss';
-
-import { useGetActiveSymbols } from 'api/symbols/hooks';
-import AssetListTable from 'uicontainers/assetListTable';
-import Space from 'antd/lib/space';
 
 const Home = () => {
   const isLoading = useAppSelector(selectGetSymbolRequestStatus) === 'started';
@@ -20,6 +18,7 @@ const Home = () => {
   React.useEffect(() => {
     getActiveSymbols();
   }, []);
+  
   return (
     <div className={styles.bodyContainer}>
       <Spin spinning={isLoading}>

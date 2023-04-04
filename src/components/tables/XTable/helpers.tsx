@@ -11,7 +11,7 @@ export const columnConfiguration = (columns: Column[]) => {
       key = column.name.toLowerCase().replace(/\s/g, '_');
     }
 
-    const title = <Header filter={column.filter} name={column.name} tooltip={column.tooltip} />;
+    const title = <Header name={column.name} />;
     return {
       title,
       key,
@@ -22,13 +22,3 @@ export const columnConfiguration = (columns: Column[]) => {
     };
   });
 };
-
-export const onRowConfig = <T extends {}>(onRowClick: ((record: T) => void) | undefined) => (
-  record: T,
-) => ({
-  onClick: () => {
-    if (onRowClick) {
-      onRowClick(record);
-    }
-  },
-});

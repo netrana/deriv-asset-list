@@ -1,10 +1,10 @@
-import { TinyArea, } from '@ant-design/plots';
+import { TinyArea } from '@ant-design/plots';
 import classnames from 'classnames';
 import React, { FC } from 'react';
 
 import { useGetTicksHistory } from 'api/ticksHistory/hooks';
 import { TickHistoryStyle, TicksHistoryRequest } from 'api/ticksHistory/types';
-import { Spin } from 'components/misc/helpers';
+import { Spin } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { selectTicksHistory } from 'store/ticksHistory/selectors';
 
@@ -25,12 +25,9 @@ export const MiniChartCell: FC<Props> = (props) => {
 
   const config = {
     height: 50,
-    autoFit: true,
+    width: 200,
     data,
-    smooth: true,
-    areaStyle: {
-      fill: '#d6e3fd',
-    },
+    autoFit: false,
     point: {
       // @ts-ignore
       size: (value) => {
@@ -65,7 +62,7 @@ export const MiniChartCell: FC<Props> = (props) => {
 
   React.useEffect(() => {
     getTicksHistory(ticks_history_request);
-  }, []);;
+  }, [symbol]);
 
   return (
     <Spin spinning={isLoading}>

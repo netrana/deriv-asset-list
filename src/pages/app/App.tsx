@@ -1,7 +1,7 @@
-import { Layout } from 'antd';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { Layout } from 'components/helpers';
 import Public from 'pages/public';
 import NotFound from 'uicontainers/notFound';
 

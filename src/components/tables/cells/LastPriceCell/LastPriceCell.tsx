@@ -2,12 +2,12 @@ import classnames from 'classnames';
 import React, { FC } from 'react';
 
 import { useTicksStream } from 'api/ticks/hooks';
+import { Spin } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { selectTicks } from 'store/ticks/selectors';
 
 import styles from './lastPriceCell.module.scss';
 import { Props } from './types';
-import { Spin } from 'components/misc/helpers';
 
 export const LastPriceCell: FC<Props> = (props) => {
   const { symbol } = props;

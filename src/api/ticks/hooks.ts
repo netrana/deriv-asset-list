@@ -31,5 +31,5 @@ export const useTicksStream = (symbol: string) => {
         tick_subscription.current = undefined;
       }
     }
-  }, []);
+  }, [symbol]);
 };

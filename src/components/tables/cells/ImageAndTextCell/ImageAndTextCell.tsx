@@ -1,5 +1,6 @@
-import Space from 'antd/lib/space';
 import React, { FC } from 'react';
+
+import { Space } from 'components/helpers';
 
 import styles from './imageAndTextCell.module.scss';
 import { Props } from './types';

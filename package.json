@@ -37,15 +37,10 @@
     "build": "./node_modules/.bin/env-cmd -f .env react-scripts build",
     "build:dev": "./node_modules/.bin/env-cmd -f .env.dev react-scripts build",
     "eject": "react-scripts eject",
-    "check:types": "./node_modules/.bin/tsc -p ./tsconfig.json",
     "lint": "eslint --max-warnings=0 --cache --cache-location ./.eslintcache ./src --ext .js,.ts,.tsx -c ./.eslintrc.js",
     "lint:fix": "eslint --max-warnings=0 --cache --cache-location ./.eslintcache --fix ./src --ext .js,.ts,.tsx -c ./.eslintrc.js",
-    "test": "react-scripts test --testPathIgnorePatterns=src/components src/shared src/types --watchAll=false --maxWorkers=50%",
-    "dev:test": "react-scripts test  --watchAll=true --maxWorkers=50%",
-    "coverage": "react-scripts test --watchAll=false --maxWorkers=50% --coverage --unhandled-rejections=strict",
-    "coverage:diff": "yarn test --coverage --changedSince=master",
-    "codecov": "./node_modules/.bin/codecov",
-    "cypress": "./node_modules/.bin/cypress"
+    "test": "react-scripts test --watchAll=false --maxWorkers=50%",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"

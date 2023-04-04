@@ -9,7 +9,7 @@ import { TicksHistoryRequest } from "./types";
 import { ChannelType, MessageType } from "api/derivWS/types";
 
 // @ts-ignore
-const handleTicksHistoryResponse = (dispatch) => async (res) => {
+const handleTicksHistoryResponse = (dispatch: AppDispatch) => async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {
     console.log("Error : ", data.error.message);

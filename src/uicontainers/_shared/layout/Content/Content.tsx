@@ -1,6 +1,7 @@
-import { Layout } from 'antd';
-import React, { FC } from 'react';
 import classNames from 'classnames';
+import React, { FC } from 'react';
+
+import { Content as AntdContent } from 'components/helpers';
 
 import styles from './content.module.scss';
 import { Props } from './types';
@@ -9,7 +10,7 @@ export const Content: FC<Props> = (props) => {
   const { children = true } = props;
 
   return (
-    <Layout.Content
+    <AntdContent
       className={classNames({
         [styles.content]: true,
       })}
@@ -17,7 +18,7 @@ export const Content: FC<Props> = (props) => {
       <div className={styles.main}>
         <div className={styles.children}>{children}</div>
       </div>
-    </Layout.Content>
+    </AntdContent>
   );
 };
 

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NXTable tests Snapshot should render with default props 1`] = `
+<Table
+  className="table"
+  columns={
+    Array [
+      Object {
+        "align": "left",
+        "dataIndex": "name",
+        "key": "name",
+        "render": [Function],
+        "title": <Header
+          name="Name"
+        />,
+        "width": undefined,
+      },
+      Object {
+        "align": "left",
+        "dataIndex": "profession",
+        "key": "profession",
+        "render": [Function],
+        "title": <Header
+          name="Profession"
+        />,
+        "width": undefined,
+      },
+    ]
+  }
+  dataSource={
+    Array [
+      Object {
+        "clients": Object {
+          "profession": "Test profession",
+        },
+        "key": "1",
+        "name": Object {
+          "text": "Test name",
+        },
+      },
+    ]
+  }
+  locale={
+    Object {
+      "emptyText": undefined,
+    }
+  }
+  pagination={false}
+  scroll={
+    Object {
+      "x": true,
+    }
+  }
+/>
+`;

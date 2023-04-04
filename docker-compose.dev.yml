@@ -1,6 +1,6 @@
 version: '3.9'
 services:   
-  one_go_ui_dev_nginx:
+  deriv_ui_dev_nginx:
       restart: "on-failure"
       build: 
         dockerfile: Dockerfile.dev
@@ -8,9 +8,9 @@ services:
       ports:
         - 2005:80
       depends_on:
-        - one_go_ui_dev
+        - deriv_ui_dev
 
-  one_go_ui_dev:
+  deriv_ui_dev:
     build: 
       dockerfile: Dockerfile.dev
       context: .

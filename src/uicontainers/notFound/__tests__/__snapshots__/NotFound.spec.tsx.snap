@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound Snapshots renders correctly 1`] = `
+<Result
+  status="404"
+  subTitle="Sorry, the page you visited does not exist."
+  title="404"
+/>
+`;

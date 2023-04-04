@@ -9,7 +9,7 @@ import { selectTicksHistory } from 'store/ticksHistory/selectors';
 
 import styles from './dailyChangeCell.module.scss';
 import { Props } from './types';
-import { Spin } from 'components/misc/helpers';
+import { Spin } from 'components/helpers';
 
 export const DailyChangeCell: FC<Props> = (props) => {
   const { symbol } = props;
@@ -39,7 +39,7 @@ export const DailyChangeCell: FC<Props> = (props) => {
 
   React.useEffect(() => {
     getTicksHistory(ticks_history_request);
-  }, []);
+  }, [symbol]);
 
   return (
     <Spin spinning={isLoading}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RadioGroup } from 'components/misc/helpers';
+import { RadioGroup } from 'components/helpers';
 import { useAppSelector } from 'store/hooks';
 import { useOnSubCategoryChange } from 'uicontainers/assetSubCategoryFilter/hooks';
 import { createSelectAssetSubCategories, selectActiveAssetSubCategory } from 'uicontainers/assetSubCategoryFilter/selectors';
@@ -19,6 +19,7 @@ const AssetSubCategoryFilter = () => {
       value: selectedValue,
     }
   }
+  
   React.useEffect(() => {
     // @ts-ignore
     handleOnSubcategoryChange(targetValue)

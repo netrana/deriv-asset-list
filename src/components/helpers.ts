@@ -19,3 +19,4 @@ export const Result = AntdResult;
 export const Space = AntdSpace;
 export const Table = AntdTable;
 export const Title = Typography.Title;
+export const Text = Typography.Text;

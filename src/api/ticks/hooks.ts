@@ -21,20 +21,21 @@ export const useTicksStream = (symbol: string) => {
           dispatch(setTicks({ symbol: data.echo_req.ticks.toString(), tick: data.tick }));
           dispatch(setGetTicksRequestStatus({ symbol: data.echo_req.ticks.toString(), requestStatus: 'done' }));
         }
-
       }
     }
   };
 
   React.useEffect(() => {
-    dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
-    tick_subscription.current = tickSubscriber.subscribe(handleTicksResponse);
+    if (!derivApi.isConnectionClosed()) {
+      dispatch(setGetTicksRequestStatus({ symbol: symbol, requestStatus: 'started' }));
+      tick_subscription.current = tickSubscriber.subscribe(handleTicksResponse);
 
-    return () => {
-      if (tick_subscription.current) {
-        // @ts-ignore
-        tick_subscription.current.unsubscribe();
-        tick_subscription.current = undefined;
+      return () => {
+        if (tick_subscription.current) {
+          // @ts-ignore
+          tick_subscription.current.unsubscribe();
+          tick_subscription.current = undefined;
+        }
       }
     }
   }, [symbol]);

@@ -20,6 +20,9 @@ export const ticksHistorySlice = createSlice({
       const { ticks, ticksHistory } = action.payload;
       state.symbolWiseHistories[ticks] = { ...state.symbolWiseHistories[ticks], ticksHistory: ticksHistory };
     },
+    resetTickHistoryState(state) {
+      state.symbolWiseHistories = {};
+    },
   },
 });
 

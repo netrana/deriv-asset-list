@@ -9,7 +9,7 @@ import {
 
 export interface NotificationParams {
   type: 'success' | 'info' | 'warning' | 'error';
-  description: string;
+  description: React.ReactNode;
   title?: string;
 }
 
@@ -32,5 +32,6 @@ export const notification = (params: NotificationParams) => {
     description,
     placement: 'bottomRight',
     icon: icons[type],
+    duration: 0,
   });
 };

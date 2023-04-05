@@ -34,7 +34,7 @@ export const DailyChangeCell: FC<Props> = (props) => {
           [styles.negative]: !isPositive,
         })}
       >
-        {currentPrice && lastDayClosingPrice && currentPrice - lastDayClosingPrice}
+        {currentPrice && lastDayClosingPrice? currentPrice - lastDayClosingPrice : '--'}
       </div>
     </Spin>
   );

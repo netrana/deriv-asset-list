@@ -1,5 +1,5 @@
 import slice from './slice';
 
-const { setTicksHistory, setGetTicksHistoryRequestStatus } = slice.actions;
+const { setTicksHistory, setGetTicksHistoryRequestStatus, resetTickHistoryState } = slice.actions;
 
-export { setTicksHistory, setGetTicksHistoryRequestStatus };
+export { setTicksHistory, setGetTicksHistoryRequestStatus, resetTickHistoryState };

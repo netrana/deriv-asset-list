@@ -20,6 +20,9 @@ export const ticksSlice = createSlice({
       const { symbol, tick } = action.payload;
       state.symbolWiseTicks[symbol] = { ...state.symbolWiseTicks[symbol], tick: tick };
     },
+    resetTicksState(state) {
+      state.symbolWiseTicks = {};
+    },
   },
 });
 

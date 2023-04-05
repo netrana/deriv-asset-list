@@ -24,7 +24,7 @@ export const LastPriceCell: FC<Props> = (props) => {
           [styles.container]: true,
         })}
       >
-        {tick?.quote}
+        {tick ? tick.quote : '--'}
       </div>
     </Spin>
   );

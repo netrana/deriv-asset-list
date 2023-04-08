@@ -1,5 +1,5 @@
 import { RequestStatus } from "api/derivWS/types";
-import { ActiveSymbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types';
 
 export interface AssetCategory {
   id: string;

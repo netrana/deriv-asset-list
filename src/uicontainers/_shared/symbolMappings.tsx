@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     AUDCAD,
     AUDCHF,
@@ -77,7 +77,7 @@ import {
     VINDEXIC300,
     VINDEX1501S,
     VINDEX2501S,
-} from 'components/symbols'
+} from 'components/symbols';
 //
 export const symbolMappings = [
     {
@@ -619,4 +619,4 @@ export const symbolMappings = [
         market: 'basket_indices',
         symbol: 'WLDXAU',
     },
-]
+];

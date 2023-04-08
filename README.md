@@ -1,4 +1,4 @@
-## Flowcode UI
+## Deriv Asset List
 
 ## Prerequisites
 
@@ -7,9 +7,9 @@ Install `nvm`:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
  
-Install the latest LTS `node`: (for example)
+Install the latest LTS or minimum following version of `node`: (for example)
 ```bash
-nvm install v14.16.1
+nvm install v16.17.0
 source ~/.bashrc
 ```
 
@@ -17,6 +17,7 @@ Install `yarn` globally:
 ```bash
 npm install -g yarn
 ```
+version 1.22.19 was used for this application
 
 ## Install Packages
 
@@ -24,17 +25,21 @@ npm install -g yarn
 yarn install
 ```
 
+### Install pre-commit hooks
 
-## Run Application with `docker`:
+We use some pre-commit hooks to ensure branch and commit naming conventions and also linting. 
+
+Make sure to install `pre-commit` on your machine following the instructions from https://pre-commit.com/#install
+
+
+### Configure Your .env File
+In order to run the project correctly, you'll need a configured `.env` file.  Copy the `.env.template` and fill
+in the missing values: 
+
 ```bash
-docker-compose -f docker-compose.dev.yml  up --build -d
+cp .env.template .env
 ```
-
-##  Stop docker application:
-```bash
-docker-compose -f docker-compose.dev.yml  down
-```
-
+You can use the same values of the `.env.template` file to run in test mode.
 ## Available Scripts
 
 In the project directory, you can run:
@@ -62,6 +67,8 @@ If you'd like to fix eslint-fixable linting errors project-wide, run
 yarn lint:fix
 ```
 
+## Run tests
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
@@ -77,6 +84,22 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Dev Build
+
+```
+yarn build:dev
+```
+You should use this command to environment specific build with is dev (development) in this case.
+
+#### E2E Tests
+
+We use Cypress for E2E Testing
+To run the end-to-end test, do:
+```bash
+yarn cypress:open
+```
+Please keep the application open at http://localhost:3000 before running this command. 
+
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -87,22 +110,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Gif flow
-### Default branches and their uses
-We have `develop` and `master` as default branches. 
-- `develop` : All the features and bug fixes should be pushed here.
-- `master`: Releases and hot fixes should be pushed here.
+## Run Application with `docker`:
+```bash
+docker-compose -f docker-compose.dev.yml  up --build -d
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Branching naming convention
-We should add a prefix based on the need with the branch name </br>
-- feature/** (for adding any feature e.g feature/add-footer)
-- bugfix/** (for fixing any bug e.g bugfix/`<bug issue number>`)
-- hotfix/** (for any hotfix e.g. hotfix/`<bug issue number>`)
-
-### Creating PR
-You should create a PR to add any code (even a single character) and 
-add reviewer. Once the PR is approved, the reviewer/author can merge to target branch.
-
-For feature and bugfix always create branch from `develop` and for hotfix create from `master`. 
-
-**Note: After any hotfix gets merged, push the changes back to develop as well**
+##  Stop docker application:
+```bash
+docker-compose -f docker-compose.dev.yml  down
+```

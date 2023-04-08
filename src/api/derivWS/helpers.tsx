@@ -3,7 +3,7 @@ import { notification } from "shared/helpers/notifications";
 import { setActiveSymbols, setGetActiveSymbolsRequestStatus } from "store/symbols/actions";
 import { resetTicksState } from "store/ticks/actions";
 import { resetTickHistoryState, setGetTicksHistoryRequestStatus, setTicksHistory } from "store/ticksHistory/actions";
-import { Text } from 'components/helpers'
+import { Text } from 'components/helpers';
 
 import { derivApi, wsConnection } from '.';
 import { ChannelType, MessageType } from "./types";

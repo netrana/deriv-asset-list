@@ -45,6 +45,7 @@ exports[`NXTable tests Snapshot should render with default props 1`] = `
       "emptyText": undefined,
     }
   }
+  onRow={[Function]}
   pagination={false}
   scroll={
     Object {

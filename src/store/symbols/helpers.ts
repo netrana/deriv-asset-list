@@ -1,5 +1,5 @@
-import { ActiveSymbol } from 'api/symbols/types'
-import { AssetCategory } from './types'
+import { ActiveSymbol } from 'api/symbols/types';
+import { AssetCategory } from './types';
 
 export const findAssetCategories = (
   symbols: ActiveSymbol[]

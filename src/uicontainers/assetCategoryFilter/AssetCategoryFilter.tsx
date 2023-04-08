@@ -12,7 +12,7 @@ const AssetCategoryFilter = () => {
   const handleOnCategoryChange = useOnCategoryChange();
 
   React.useEffect(() => {
-    handleOnCategoryChange(categories[0]?.id)
+    handleOnCategoryChange(categories[0]?.id);
   }, [categories]);
 
   return (

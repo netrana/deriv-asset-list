@@ -25,7 +25,7 @@ const AssetListTable = () => {
         style: TickHistoryStyle.CANDLES,
       };
       getTicksHistory(ticks_history_request);
-    })
+    });
   }, [selectedSymbols]);
 
   return (

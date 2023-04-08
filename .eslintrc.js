@@ -55,5 +55,9 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-unused-vars': 'off',
     'no-control-regex': 0,
+    "semi": ["error", "always", { "omitLastInOneLineBlock": false }],
+    "semi-style": ["error", "last"],
+    "no-extra-semi": ["error"],
+    "semi-spacing": ["error", { "before": false, "after": true }]
   },
 };

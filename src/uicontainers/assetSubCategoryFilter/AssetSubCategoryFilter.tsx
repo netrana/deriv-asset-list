@@ -18,11 +18,11 @@ const AssetSubCategoryFilter = () => {
     target: {
       value: selectedValue,
     }
-  }
+  };
   
   React.useEffect(() => {
     // @ts-ignore
-    handleOnSubcategoryChange(targetValue)
+    handleOnSubcategoryChange(targetValue);
   }, [selectedSubCategory, subCategories]);
 
   return (

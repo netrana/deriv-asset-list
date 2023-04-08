@@ -1,4 +1,4 @@
-import { ActiveSymbol } from 'api/symbols/types'
+import { ActiveSymbol } from 'api/symbols/types';
 
 import { AssetTableData } from './type';
 import { symbolMappings } from 'uicontainers/_shared/symbolMappings';

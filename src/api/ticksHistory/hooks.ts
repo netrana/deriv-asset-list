@@ -16,7 +16,7 @@ export const useGetTicksHistory = () => {
       if (!derivApi.isConnectionClosed()) {
         dispatch(setGetTicksHistoryRequestStatus({ ticks: request.ticks_history, requestStatus: 'started' }));
         wsConnection.addEventListener(ChannelType.MESSAGE, handleWsResponse(dispatch));
-        getTicksHistory(request)
+        getTicksHistory(request);
       }
     },
     [],

@@ -24,14 +24,6 @@ version 1.22.19 was used for this application
 ```bash
 yarn install
 ```
-
-### Install pre-commit hooks
-
-We use some pre-commit hooks to ensure branch and commit naming conventions and also linting. 
-
-Make sure to install `pre-commit` on your machine following the instructions from https://pre-commit.com/#install
-
-
 ### Configure Your .env File
 In order to run the project correctly, you'll need a configured `.env` file.  Copy the `.env.template` and fill
 in the missing values: 
@@ -52,7 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-## Linting 
+### `yarn lint`
 
 We use a combination of ESLint and Prettier for linting. To run linting 
 project-wide do:
@@ -61,13 +53,13 @@ project-wide do:
 yarn lint
 ```
 
+### `yarn lint:fix`
+
 If you'd like to fix eslint-fixable linting errors project-wide, run
 
 ```bash
 yarn lint:fix
 ```
-
-## Run tests
 
 ### `yarn test`
 
@@ -84,14 +76,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Dev Build
-
+### `yarn build:dev`
+You should use this command to environment specific build with is dev (development) in this case
 ```
 yarn build:dev
 ```
-You should use this command to environment specific build with is dev (development) in this case.
+.
 
-#### E2E Tests
+#### `E2E Tests`
 
 We use Cypress for E2E Testing
 To run the end-to-end test, do:
@@ -120,3 +112,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```bash
 docker-compose -f docker-compose.dev.yml  down
 ```
+
+### Pre-commit hooks
+
+We use some pre-commit hooks to ensure branch and commit naming conventions and also linting. It will check lint rules and run unit tests. If any one fails, it will stop committing the code, and then you need to fix those lint issues and failed test cases.

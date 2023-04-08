@@ -1,4 +1,4 @@
-## Flowcode UI
+## Deriv Asset List
 
 ### Organize imports
 Organize your imports as below:
@@ -20,9 +20,9 @@ imports styles from './<component-name>.module.scss'
 
 ### Naming conventions
 - Folder:
-  - Folders containing last file should be in PascalCase. Otherwise camelCase.
+  - Folders should be in camelCase.
 - File:
-  - Only JSX components and related style files should use PascalCase other wise camelCase
+  - Only JSX components should use PascalCase
 
 ### Folder structure and purposes
 ```
@@ -32,6 +32,7 @@ imports styles from './<component-name>.module.scss'
 |- components
 |- pages
 |- shared
+|- store
 |- styles
 |- uicontainers
 |- index.tsx
@@ -43,7 +44,7 @@ Should contain external api calls
 Should contain static files like images/icons
 
 #### components
-Should contain basic/custom/composite components
+Should contain re-usable components
 
 #### pages
 Should contain different top level pages
@@ -61,8 +62,8 @@ Should contain different business components
 ```
 /src
 |- components
-|     |- Button
-|     |     |-Button.module.scss
+|     |- button
+|     |     |-button.module.scss
 |     |     |-Button.tsx
 |     |     |-index.tsx
 ```
